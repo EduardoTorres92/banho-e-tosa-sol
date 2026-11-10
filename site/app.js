@@ -4,6 +4,26 @@
   let reduzir = mqReduzir.matches;
   mqReduzir.addEventListener("change", (e) => { reduzir = e.matches; document.dispatchEvent(new Event("reduzir-mudou")); });
 
+  /* ── Medição: Pixel da Meta e Google Analytics, só se houver ID no config ── */
+  const M = S.medicao || {};
+  if (/^\d{15,16}$/.test(M.pixelMeta || "")) {
+    !function (f, b, e, v, n, t, s) { if (f.fbq) return; n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments); };
+      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = "2.0"; n.queue = []; t = b.createElement(e); t.async = !0; t.src = v;
+      s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s); }(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+    fbq("init", M.pixelMeta);
+    fbq("track", "PageView");
+  }
+  if (/^G-[A-Z0-9]+$/.test(M.googleAnalytics || "")) {
+    const g = document.createElement("script");
+    g.async = true;
+    g.src = `https://www.googletagmanager.com/gtag/js?id=${M.googleAnalytics}`;
+    document.head.appendChild(g);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { dataLayer.push(arguments); };
+    gtag("js", new Date());
+    gtag("config", M.googleAnalytics);
+  }
+
 
   /* ── Palco: a rolagem toca o olhar do cachorro e revela os serviços ─────── */
   const palco = document.querySelector(".palco");
@@ -46,9 +66,22 @@
       img.onload = () => { if (Math.round(atual) === i || desenhado === -1) desenhar(i, true); };
       return (quadros[i] = img);
     };
+    // Só o 1º quadro baixa ao abrir; o resto espera o primeiro sinal de rolagem.
+    // Quem não rola não gasta o plano de dados com o vídeo inteiro.
+    let liberado = scrollY > 0;
+    if (!liberado) {
+      const sinais = ["scroll", "wheel", "touchstart", "keydown", "pointerdown"];
+      const liberar = () => {
+        if (liberado) return;
+        liberado = true;
+        sinais.forEach((s) => removeEventListener(s, liberar));
+        carregarTudo();
+      };
+      sinais.forEach((s) => addEventListener(s, liberar, { passive: true }));
+    }
     const carregarTudo = () => {
       carregar(0);
-      if (reduzir) return;
+      if (reduzir || !liberado) return;
       const fila = [];
       for (const passo of [8, 4, 2, 1]) for (let i = 0; i < total; i += passo) if (!fila.includes(i)) fila.push(i);
       let k = 0;
@@ -373,6 +406,11 @@
     document.querySelectorAll("[data-whats]").forEach((a) => {
       a.href = a.dataset.msg ? `https://wa.me/${num}?text=${encodeURIComponent(a.dataset.msg)}` : link;
       a.target = "_blank"; a.rel = "noopener";
+      // Conversão: avisa o Pixel e o Analytics antes de abrir a conversa (se estiverem ligados no config.js)
+      a.addEventListener("click", () => {
+        if (window.fbq) fbq("track", "Contact");
+        if (window.gtag) gtag("event", "generate_lead", { method: "whatsapp" });
+      });
     });
   }
 
@@ -417,6 +455,8 @@
         const j = await r.json().catch(() => ({}));
         if (!r.ok || j.success === false || j.success === "false") throw new Error(j.message || r.status);
         form.reset();
+        if (window.fbq) fbq("track", "Lead");
+        if (window.gtag) gtag("event", "generate_lead", { method: "formulario" });
         avisar("Recebemos seu contato. Em breve falamos com você.", "ok");
       } catch (e) {
         console.warn("Falha no envio do formulário:", e);

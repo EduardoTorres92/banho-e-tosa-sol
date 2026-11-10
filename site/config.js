@@ -13,6 +13,12 @@ window.SITE = {
     assunto: "Novo contato pelo site Banho e Tosa Sol",
   },
 
+  // Medição: deixe vazio para desligar. O código só carrega se tiver ID.
+  medicao: {
+    pixelMeta: "",        // 15–16 dígitos, do Gerenciador de Eventos da Meta
+    googleAnalytics: "",  // "G-XXXXXXX", do GA4 → Administrador → Fluxos de dados
+  },
+
   frames: {
     total: 128, // quadros fatiados de fonte/olhar.mp4 (16 fps)
     desktop: "assets/frames/desktop/f_{n}.webp",
