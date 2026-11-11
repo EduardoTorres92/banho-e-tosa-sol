@@ -199,64 +199,65 @@
       <h2 id="galeria-titulo">Quem já passou por aqui</h2>
       <div class="galeria-controles">
         <a class="galeria-insta" href="https://instagram.com/sol65622" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5.2"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1.1" class="ponto"/></svg>Veja mais no nosso Instagram</a>
-        <button class="galeria-seta" data-dir="-1" aria-label="Fotos anteriores" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
-        <button class="galeria-seta" data-dir="1" aria-label="Próximas fotos"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
-      </div>
+</div>
     </div>
-    <!-- Para cada foto: <li class="foto" style="--i:N"><figure><div class="foto-moldura"><img src="assets/img/galeria/NOME.webp" alt="DESCRIÇÃO" width="800" height="1000" loading="lazy" decoding="async"></div></figure></li> -->
-    <ul class="galeria" tabindex="0" aria-label="Fotos de cães atendidos e posts de datas especiais, role para o lado">
-          <li class="foto" style="--i:0">
-            <figure>
-              <div class="foto-moldura"><img src="assets/img/galeria/p01.webp" alt="Shih-tzu de pelo claro com laço lilás, recém-tosado, sentado na bancada do salão" width="800" height="1000" loading="lazy" decoding="async"></div>
-            </figure>
-          </li>
-          <li class="foto" style="--i:1">
-            <figure>
-              <div class="foto-moldura"><img src="assets/img/galeria/p04.webp" alt="Cão branco de orelhas marrons com bandana amarela, sentado na mesa de banho" width="800" height="1000" loading="lazy" decoding="async"></div>
-            </figure>
-          </li>
-          <li class="foto" style="--i:2">
-            <figure>
-              <div class="foto-moldura"><img src="assets/img/galeria/p05.webp" alt="Shih-tzu branco e caramelo lambendo o focinho, com gravatinha xadrez lilás" width="800" height="1000" loading="lazy" decoding="async"></div>
-            </figure>
-          </li>
-          <li class="foto" style="--i:3">
-            <figure>
-              <div class="foto-moldura"><img src="assets/img/galeria/p09.webp" alt="Shih-tzu preto e branco com bandana verde, em pé na mesa de banho amarela" width="800" height="1000" loading="lazy" decoding="async"></div>
-            </figure>
-          </li>
-          <li class="foto" style="--i:4">
-            <figure>
-              <div class="foto-moldura"><img src="assets/img/galeria/p16.webp" alt="Shih-tzu cinza com chapéu de bruxa e capa laranja, em post de Halloween" width="800" height="1000" loading="lazy" decoding="async"></div>
-              <figcaption>Halloween no @sol65622</figcaption>
-            </figure>
-          </li>
-          <li class="foto" style="--i:5">
-            <figure>
-              <div class="foto-moldura"><img src="assets/img/galeria/p22.webp" alt="Shih-tzu branco e caramelo com gola colorida, em post de Dia das Crianças" width="800" height="1000" loading="lazy" decoding="async"></div>
-              <figcaption>Dia das Crianças no @sol65622</figcaption>
-            </figure>
-          </li>
-          <li class="foto" style="--i:6">
-            <figure>
-              <div class="foto-moldura"><img src="assets/img/galeria/p20.webp" alt="Shih-tzu preto e branco com chapéu e capa roxos de bruxa, em post de Halloween" width="800" height="1000" loading="lazy" decoding="async"></div>
-              <figcaption>Halloween no @sol65622</figcaption>
-            </figure>
-          </li>
-          <li class="foto" style="--i:7">
-            <figure>
-              <div class="foto-moldura"><img src="assets/img/galeria/p19.webp" alt="Shih-tzu com gravata-borboleta azul e amarela, em post de Dia dos Pais" width="800" height="1000" loading="lazy" decoding="async"></div>
-              <figcaption>Dia dos Pais no @sol65622</figcaption>
-            </figure>
-          </li>
-          <li class="foto" style="--i:8">
-            <figure>
-              <div class="foto-moldura"><img src="assets/img/galeria/p21.webp" alt="Shih-tzu com bandana vermelha, em post de Dia dos Pais" width="800" height="1000" loading="lazy" decoding="async"></div>
-              <figcaption>Dia dos Pais no @sol65622</figcaption>
-            </figure>
-          </li>
-    </ul>
-    <div class="galeria-progresso" aria-hidden="true"><span></span></div>
+    <!-- VARAL: as fotos ficam penduradas num fio que cede no meio. Para trocar uma foto, troque o <figure> inteiro
+         (a imagem fica cortada num quadrado pelo meio; o texto da margem é a <figcaption>, a legenda vai em data-legenda). -->
+    <div class="varal" tabindex="0" role="region" aria-roledescription="carrossel" aria-label="Fotos de cães atendidos e posts de datas especiais">
+      <svg class="varal-fio" aria-hidden="true"><path fill="none" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <figure class="varal-foto" data-legenda="Recém-tosado, na bancada do salão.">
+        <div class="varal-papel"><div class="varal-img"><img src="assets/img/galeria/p01.webp" alt="Shih-tzu de pelo claro com laço lilás, recém-tosado, sentado na bancada do salão" width="800" height="1000" loading="lazy" decoding="async" draggable="false"></div><figcaption class="varal-nota">Laço lilás</figcaption></div>
+        <span class="varal-pregador" aria-hidden="true"></span>
+      </figure>
+      <figure class="varal-foto" data-legenda="Pronto para ir para casa, ainda na mesa de banho.">
+        <div class="varal-papel"><div class="varal-img"><img src="assets/img/galeria/p04.webp" alt="Cão branco de orelhas marrons com bandana amarela, sentado na mesa de banho" width="800" height="1000" loading="lazy" decoding="async" draggable="false"></div><figcaption class="varal-nota">Bandana amarela</figcaption></div>
+        <span class="varal-pregador" aria-hidden="true"></span>
+      </figure>
+      <figure class="varal-foto" data-legenda="Lambendo o focinho depois do banho.">
+        <div class="varal-papel"><div class="varal-img"><img src="assets/img/galeria/p05.webp" alt="Shih-tzu branco e caramelo lambendo o focinho, com gravatinha xadrez lilás" width="800" height="1000" loading="lazy" decoding="async" draggable="false"></div><figcaption class="varal-nota">Gravatinha xadrez</figcaption></div>
+        <span class="varal-pregador" aria-hidden="true"></span>
+      </figure>
+      <figure class="varal-foto" data-legenda="De pé na mesa de banho, já escovado.">
+        <div class="varal-papel"><div class="varal-img"><img src="assets/img/galeria/p09.webp" alt="Shih-tzu preto e branco com bandana verde, em pé na mesa de banho amarela" width="800" height="1000" loading="lazy" decoding="async" draggable="false"></div><figcaption class="varal-nota">Bandana verde</figcaption></div>
+        <span class="varal-pregador" aria-hidden="true"></span>
+      </figure>
+      <figure class="varal-foto" data-legenda="Chapéu de bruxa e capa laranja no @sol65622.">
+        <div class="varal-papel"><div class="varal-img"><img src="assets/img/galeria/p16.webp" alt="Shih-tzu cinza com chapéu de bruxa e capa laranja, em post de Halloween" width="800" height="1000" loading="lazy" decoding="async" draggable="false"></div><figcaption class="varal-nota">Halloween</figcaption></div>
+        <span class="varal-pregador" aria-hidden="true"></span>
+      </figure>
+      <figure class="varal-foto" data-legenda="Gola colorida no post do @sol65622.">
+        <div class="varal-papel"><div class="varal-img"><img src="assets/img/galeria/p22.webp" alt="Shih-tzu branco e caramelo com gola colorida, em post de Dia das Crianças" width="800" height="1000" loading="lazy" decoding="async" draggable="false"></div><figcaption class="varal-nota">Dia das Crianças</figcaption></div>
+        <span class="varal-pregador" aria-hidden="true"></span>
+      </figure>
+      <figure class="varal-foto" data-legenda="Chapéu e capa roxos de bruxa.">
+        <div class="varal-papel"><div class="varal-img"><img src="assets/img/galeria/p20.webp" alt="Shih-tzu preto e branco com chapéu e capa roxos de bruxa, em post de Halloween" width="800" height="1000" loading="lazy" decoding="async" draggable="false"></div><figcaption class="varal-nota">Halloween</figcaption></div>
+        <span class="varal-pregador" aria-hidden="true"></span>
+      </figure>
+      <figure class="varal-foto" data-legenda="Gravata-borboleta azul e amarela.">
+        <div class="varal-papel"><div class="varal-img"><img src="assets/img/galeria/p19.webp" alt="Shih-tzu com gravata-borboleta azul e amarela, em post de Dia dos Pais" width="800" height="1000" loading="lazy" decoding="async" draggable="false"></div><figcaption class="varal-nota">Dia dos Pais</figcaption></div>
+        <span class="varal-pregador" aria-hidden="true"></span>
+      </figure>
+      <figure class="varal-foto" data-legenda="Bandana vermelha no post do @sol65622.">
+        <div class="varal-papel"><div class="varal-img"><img src="assets/img/galeria/p21.webp" alt="Shih-tzu com bandana vermelha, em post de Dia dos Pais" width="800" height="1000" loading="lazy" decoding="async" draggable="false"></div><figcaption class="varal-nota">Dia dos Pais</figcaption></div>
+        <span class="varal-pregador" aria-hidden="true"></span>
+      </figure>
+      <div class="varal-barra">
+        <div class="varal-cap" aria-hidden="true"></div>
+        <span class="varal-conta" aria-hidden="true"></span>
+        <button type="button" class="varal-btn" data-dir="-1" aria-label="Foto anterior"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3 5 8l5 5"/></svg></button>
+        <button type="button" class="varal-btn" data-dir="1" aria-label="Próxima foto"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m6 3 5 5-5 5"/></svg></button>
+      </div>
+      <div class="sr-only" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <!-- MURAL: recados dos tutores em polaroids. O conteúdo vem de config.js (depoimentos). -->
+  <section id="depoimentos" class="secao secao--mural" aria-labelledby="mural-titulo" hidden>
+    <div class="mural-cabeca">
+      <h2 id="mural-titulo">Mural dos tutores</h2>
+      <p>As fotos e os recados que vocês mandam ficam aqui.<span class="so-mouse"> Arraste para mexer.</span></p>
+    </div>
+    <ul class="mural"></ul>
   </section>
 
   <!-- COMO FUNCIONA -->
@@ -321,12 +322,37 @@
 
 </main>
 
-<footer class="rodape">
-  <div class="painel rodape-painel">
-    <span class="marca-texto"><svg class="sol-icone"><use href="#sol"/></svg>Banho e Tosa <em>Sol</em></span>
-    <span>Rua Eulalina Rosa de Jesus Raguso, 51 · Wanel Ville 5 · Sorocaba/SP</span>
-    <span>© <span data-ano></span> Banho e Tosa Sol · <a href="privacidade.html">Política de privacidade</a> · <a href="termos.html">Termos de uso</a></span>
+<!-- RODAPÉ: a palavra "sol" impressa em pontos dourados (canvas); o mouse abre os pontos e o clique solta uma onda -->
+<footer class="rodape-sol" data-palavra="sol">
+  <canvas aria-hidden="true"></canvas>
+  <div class="rs-topo">
+    <div class="rs-marca">
+      <strong>Banho e Tosa Sol</strong>
+      <span>© <span data-ano></span> · Sorocaba/SP</span>
+    </div>
+    <nav class="rs-col" aria-label="Contato">
+      <h3>Contato</h3>
+      <ul>
+        <li><a class="rs-link" data-whats href="#contato">WhatsApp (15) 99126-8383</a></li>
+        <li><a class="rs-link" href="https://instagram.com/sol65622" target="_blank" rel="noopener">Instagram @sol65622</a></li>
+      </ul>
+    </nav>
+    <nav class="rs-col" aria-label="Endereço">
+      <h3>Onde estamos</h3>
+      <ul>
+        <li><a class="rs-link" href="https://www.google.com/maps/search/?api=1&query=Rua+Eulalina+Rosa+de+Jesus+Raguso%2C+51%2C+Wanel+Ville+5%2C+Sorocaba+SP" target="_blank" rel="noopener">Rua Eulalina Rosa de Jesus Raguso, 51</a></li>
+        <li><span class="rs-link">Wanel Ville 5 · Sorocaba/SP</span></li>
+      </ul>
+    </nav>
+    <nav class="rs-col" aria-label="Informações">
+      <h3>Informações</h3>
+      <ul>
+        <li><a class="rs-link" href="privacidade.html">Política de privacidade</a></li>
+        <li><a class="rs-link" href="termos.html">Termos de uso</a></li>
+      </ul>
+    </nav>
   </div>
+  <div class="rs-filete"><a class="rs-link" href="#inicio">Voltar ao topo ↑</a></div>
 </footer>
 
 <a class="whats" data-whats target="_blank" rel="noopener" aria-label="Conversar no WhatsApp">
@@ -335,5 +361,8 @@
 
 <script src="config.js"></script>
 <script src="app.js"></script>
+<script src="varal.js"></script>
+<script src="mural.js"></script>
+<script src="rodape.js"></script>
 </body>
 </html>
