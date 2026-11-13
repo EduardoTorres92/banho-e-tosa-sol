@@ -2,7 +2,7 @@
 
 Site de uma página para o **Banho e Tosa Sol**, um banho e tosa real em Sorocaba/SP. A rolagem funciona como um filme: o cachorro do vídeo de abertura acompanha o visitante enquanto os serviços aparecem.
 
-**▶ Ver ao vivo:** https://banhoetosasol.netlify.app
+**▶ Ver ao vivo:** https://banhoetosa.eduardotorres-dev.com.br
 
 | Abertura | Serviços |
 |---|---|
@@ -23,7 +23,7 @@ Site de uma página para o **Banho e Tosa Sol**, um banho e tosa real em Sorocab
 1. Briefing com a dona do negócio: serviços, público, fotos e materiais da marca.
 2. Vídeo de abertura e ilustrações gerados com IA (Veo e Gemini), seguindo a identidade visual.
 3. Vídeo fatiado em quadros com `ffmpeg` para a animação controlada pela rolagem.
-4. Publicado no Netlify, com cabeçalhos de cache e segurança (`netlify.toml`).
+4. Publicado na Hostinger em banhoetosa.eduardotorres-dev.com.br (o `netlify.toml` ficou do deploy antigo na Netlify).
 
 ## Estrutura
 

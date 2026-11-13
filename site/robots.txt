@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://banhoetosasol.netlify.app/sitemap.xml
+Sitemap: https://banhoetosa.eduardotorres-dev.com.br/sitemap.xml
